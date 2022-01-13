@@ -4,7 +4,14 @@
   "description": "## Instructions",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build && npm run watch",
+    "build": "npm run compile-css",
+    "watch": "npm run watch-css",
+    "production": "npm run compile-css-prod",
+    "compile-css": "sass ./src/scss/styles.scss ./dist/css/styles.css",
+    "compile-css-prod": "sass ./src/scss/styles.scss ./dist/css/styles.css --no-source-map --style=compressed",
+    "watch-css": "sass --watch ./src/scss/styles.scss ./dist/css/styles.css"
   },
   "repository": {
     "type": "git",
@@ -15,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/loveliejaca/sass-lovelyjaca/issues"
   },
-  "homepage": "https://github.com/loveliejaca/sass-lovelyjaca#readme"
+  "homepage": "https://github.com/loveliejaca/sass-lovelyjaca#readme",
+  "devDependencies": {
+    "sass": "^1.48.0"
+  }
 }
