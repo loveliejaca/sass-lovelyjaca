@@ -1,0 +1,21 @@
+{
+  "name": "sass-lovelyjaca",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npm run build && npm run watch",
+    "build": "npm run compile-css & npm run compile-js",
+    "watch": "npm run watch-css & npm run watch-js", 
+    "production": "npm run compile-css-prod & npm run compile-js-prod",
+    "compile-css": "sass ./src/scss/styles.scss ./dist/css/styles.css",
+    "compile-css-prod": "sass ./src/scss/styles.scss ./dist/css/styles.css --no-source-map --style=compressed",
+    "compile-js": "rollup ./src/js/scripts.js -o ./dist/js/scripts.js --format=iife",
+    "compile-js-prod": "rollup ./src/js/scripts.js -o ./dist/js/scripts.js --format=iife --compact",
+    "watch-css": "sass --watch ./src/scss/styles.scss ./dist/css/styles.css",
+    "watch-js": "rollup ./src/js/scripts.js -o ./dist/js/scripts.js --format iife --watch"
+  },
+  "devDependencies": {
+    "rollup": "^2.63.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.48.0"
+  }
+}
